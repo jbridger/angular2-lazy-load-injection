@@ -12,6 +12,7 @@ import { CrisisCenterHomeComponent } from './crisis-center-home.component';
 import { CrisisDetailComponent }     from './crisis-detail.component';
 
 import { CrisisCenterRoutingModule } from './crisis-center-routing.module';
+import { ErrorComponent } from "./error.component";
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { CrisisCenterRoutingModule } from './crisis-center-routing.module';
     CrisisCenterRoutingModule
   ],
   declarations: [
+    ErrorComponent,
     CrisisCenterComponent,
     CrisisListComponent,
     CrisisCenterHomeComponent,

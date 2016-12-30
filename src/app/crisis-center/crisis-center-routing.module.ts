@@ -1,6 +1,6 @@
 // #docplaster
 // #docregion
-import { NgModule }             from '@angular/core';
+import { NgModule, Injector }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { CrisisCenterHomeComponent } from './crisis-center-home.component';
@@ -10,6 +10,7 @@ import { CrisisDetailComponent }     from './crisis-detail.component';
 
 import { CanDeactivateGuard }     from '../can-deactivate-guard.service';
 import { CrisisDetailResolver }   from './crisis-detail-resolver.service';
+import { ErrorComponent } from "./error.component";
 
 const crisisCenterRoutes: Routes = [
   {
@@ -20,6 +21,10 @@ const crisisCenterRoutes: Routes = [
         path: '',
         component: CrisisListComponent,
         children: [
+          {
+            path: 'error',
+            component: ErrorComponent,
+          },
           {
             path: ':id',
             component: CrisisDetailComponent,
@@ -49,5 +54,11 @@ const crisisCenterRoutes: Routes = [
     CrisisDetailResolver
   ]
 })
-export class CrisisCenterRoutingModule { }
+export class CrisisCenterRoutingModule {
+
+  constructor(injector: Injector) {
+    console.log('Instantiating CrisisCenterRoutingModule');
+    console.log(injector);
+  }
+}
 // #enddocregion
